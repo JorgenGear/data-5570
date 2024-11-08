@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist - StoreName</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+        .search-bar {
+            flex: 1;
+            margin: 0 1em;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 0.5em;
+        }
+        .navbar {
+            display: flex;
+            gap: 1em;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+        }
+        .main-content {
+            padding: 2em;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .wishlist {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2em;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 1em;
+            text-align: center;
+            border-radius: 4px;
+        }
+        .product-image {
+            background: #f1f1f1;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1em;
+        }
+        button {
+            padding: 0.5em 1em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 0.5em;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button.remove {
+            background-color: #dc3545;
+        }
+        button.remove:hover {
+            background-color: #c82333;
+        }
+        .empty-wishlist {
+            text-align: center;
+            padding: 2em;
+            background: #f8f8f8;
+            border-radius: 4px;
+        }
+        footer {
+            background-color: #f8f8f8;
+            padding: 1em;
+            text-align: center;
+            margin-top: 2em;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">StoreLogo</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products...">
+        </div>
+        <nav class="navbar">
+            <a href="search.html">Search</a>
+            <a href="cart.html">Cart</a>
+            <a href="wishlist.html">Wishlist</a>
+            <a href="#">Account</a>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <h2>My Wishlist</h2>
+        <div class="wishlist">
+            <div class="product-card">
+                <div class="product-image">Product Image</div>
+                <h3>Product Name</h3>
+                <p>$99.99</p>
+                <p style="color: green;">In Stock</p>
+                <button>Add to Cart</button>
+                <button class="remove">Remove</button>
+            </div>
+            <!-- More wishlist items can be added here -->
+        </div>
+        
+        <!-- Show this when wishlist is empty -->
+        <div class="empty-wishlist" style="display: none;">
+            <h3>Your wishlist is empty</h3>
+            <p>Browse our products and add items to your wishlist!</p>
+            <a href="search.html"><button style="max-width: 200px; margin: 1em auto;">Start Shopping</button></a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 StoreName. All rights reserved.</p>
+    </footer>
+</body>
+</html>

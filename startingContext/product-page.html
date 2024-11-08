@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - StoreName</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+        .search-bar {
+            flex: 1;
+            margin: 0 1em;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 0.5em;
+        }
+        .navbar {
+            display: flex;
+            gap: 1em;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+        }
+        .main-content {
+            padding: 2em;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2em;
+            margin-bottom: 2em;
+        }
+        .product-image {
+            background: #f1f1f1;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+        .price {
+            font-size: 1.5em;
+            color: #007bff;
+        }
+        .options select {
+            width: 100%;
+            padding: 0.5em;
+        }
+        .actions {
+            display: flex;
+            gap: 1em;
+        }
+        button {
+            padding: 0.5em 1em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            flex: 1;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .tabs {
+            display: flex;
+            gap: 1em;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 1em;
+        }
+        .tab {
+            padding: 0.5em 1em;
+            border: none;
+            background: none;
+            color: #333;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        .tab.active {
+            border-bottom-color: #007bff;
+        }
+        footer {
+            background-color: #f8f8f8;
+            padding: 1em;
+            text-align: center;
+            margin-top: 2em;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">StoreLogo</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products...">
+        </div>
+        <nav class="navbar">
+            <a href="search.html">Search</a>
+            <a href="cart.html">Cart</a>
+            <a href="wishlist.html">Wishlist</a>
+            <a href="#">Account</a>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="product-details">
+            <div class="product-image">Product Image</div>
+            <div class="product-info">
+                <h2>Product Name</h2>
+                <p class="price">$99.99</p>
+                <div class="description">
+                    <h3>Description</h3>
+                    <p>Detailed product description goes here...</p>
+                </div>
+                <div class="options">
+                    <select>
+                        <option>Select Size</option>
+                        <option>Small</option>
+                        <option>Medium</option>
+                        <option>Large</option>
+                    </select>
+                </div>
+                <div class="actions">
+                    <a href="cart.html"><button>Add to Cart</button></a>
+                    <a href="wishlist.html"><button>Add to Wishlist</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="tabs">
+            <button class="tab active">Description</button>
+            <button class="tab">Specifications</button>
+            <button class="tab">Reviews</button>
+        </div>
+        <div class="tab-content">
+            <p>Detailed product information and specifications go here...</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 StoreName. All rights reserved.</p>
+    </footer>
+</body>
+</html>

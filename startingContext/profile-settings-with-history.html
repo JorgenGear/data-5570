@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Settings - StoreName</title>
+    <style>
+        /* Previous styles remain the same */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+        /* Header styles */
+        header {
+            background-color: #f8f8f8;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+        .search-bar {
+            flex: 1;
+            margin: 0 1em;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 0.5em;
+        }
+        .navbar {
+            display: flex;
+            gap: 1em;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+        }
+        .main-content {
+            padding: 2em;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* Settings layout */
+        .settings-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2em;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .settings-nav {
+            padding: 1.5em;
+            border-right: 1px solid #ddd;
+        }
+        .settings-nav ul {
+            list-style: none;
+        }
+        .settings-nav li {
+            margin-bottom: 0.5em;
+        }
+        .settings-nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 0.5em 1em;
+            display: block;
+            border-radius: 4px;
+        }
+        .settings-nav a:hover {
+            background-color: #f0f0f0;
+        }
+        .settings-nav a.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .settings-content {
+            padding: 1.5em;
+        }
+
+        /* New Purchase History Styles */
+        .purchase-history {
+            margin-top: 2em;
+        }
+        .order-filters {
+            display: flex;
+            gap: 1em;
+            margin-bottom: 1em;
+        }
+        .order-filters select {
+            padding: 0.5em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .order-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 1em;
+            overflow: hidden;
+        }
+        .order-header {
+            background-color: #f8f8f8;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+        }
+        .order-status {
+            padding: 0.25em 0.75em;
+            border-radius: 999px;
+            font-size: 0.875em;
+            font-weight: bold;
+        }
+        .status-delivered {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+        .status-processing {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+        .status-cancelled {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+        .order-details {
+            padding: 1em;
+        }
+        .order-items {
+            display: flex;
+            gap: 1em;
+            margin: 1em 0;
+        }
+        .order-item {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+        }
+        .item-image {
+            width: 60px;
+            height: 60px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+        .order-actions {
+            display: flex;
+            gap: 1em;
+            padding: 1em;
+            border-top: 1px solid #ddd;
+            background-color: #f8f8f8;
+        }
+        .btn {
+            padding: 0.5em 1em;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.875em;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+        .btn-secondary {
+            background-color: white;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5em;
+            margin-top: 2em;
+        }
+        .page-btn {
+            padding: 0.5em 1em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+        }
+        .page-btn.active {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
+        footer {
+            background-color: #f8f8f8;
+            padding: 1em;
+            text-align: center;
+            margin-top: 2em;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">StoreLogo</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products...">
+        </div>
+        <nav class="navbar">
+            <a href="search.html">Search</a>
+            <a href="cart.html">Cart</a>
+            <a href="wishlist.html">Wishlist</a>
+            <a href="#" class="active">Account</a>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="settings-container">
+            <nav class="settings-nav">
+                <ul>
+                    <li><a href="#profile">Profile</a></li>
+                    <li><a href="#orders" class="active">Purchase History</a></li>
+                    <li><a href="#security">Security</a></li>
+                    <li><a href="#notifications">Notifications</a></li>
+                    <li><a href="#payment">Payment Methods</a></li>
+                    <li><a href="#addresses">Shipping Addresses</a></li>
+                    <li><a href="#privacy">Privacy</a></li>
+                </ul>
+            </nav>
+
+            <div class="settings-content">
+                <div class="purchase-history">
+                    <h2>Purchase History</h2>
+                    
+                    <div class="order-filters">
+                        <select>
+                            <option>Last 6 months</option>
+                            <option>Last year</option>
+                            <option>All time</option>
+                        </select>
+                        <select>
+                            <option>All Orders</option>
+                            <option>Delivered</option>
+                            <option>Processing</option>
+                            <option>Cancelled</option>
+                        </select>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div>
+                                <strong>Order #12345</strong>
+                                <span style="margin-left: 1em; color: #666;">Placed on Oct 15, 2024</span>
+                            </div>
+                            <span class="order-status status-delivered">Delivered</span>
+                        </div>
+                        <div class="order-details">
+                            <div class="order-items">
+                                <div class="order-item">
+                                    <div class="item-image">
+                                        Item 1
+                                    </div>
+                                    <div>
+                                        <div><strong>Product Name</strong></div>
+                                        <div style="color: #666;">Quantity: 1</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="color: #666;">
+                                <strong>Total:</strong> $99.99
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <a href="#" class="btn btn-primary">Track Order</a>
+                            <a href="#" class="btn btn-secondary">View Details</a>
+                            <a href="#" class="btn btn-secondary">Leave Review</a>
+                        </div>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div>
+                                <strong>Order #12344</strong>
+                                <span style="margin-left: 1em; color: #666;">Placed on Oct 10, 2024</span>
+                            </div>
+                            <span class="order-status status-processing">Processing</span>
+                        </div>
+                        <div class="order-details">
+                            <div class="order-items">
+                                <div class="order-item">
+                                    <div class="item-image">
+                                        Item 1
+                                    </div>
+                                    <div>
+                                        <div><strong>Product Name</strong></div>
+                                        <div style="color: #666;">Quantity: 2</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="color: #666;">
+                                <strong>Total:</strong> $159.98
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <a href="#" class="btn btn-primary">Track Order</a>
+                            <a href="#" class="btn btn-secondary">View Details</a>
+                            <a href="#" class="btn btn-secondary">Cancel Order</a>
+                        </div>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div>
+                                <strong>Order #12343</strong>
+                                <span style="margin-left: 1em; color: #666;">Placed on Oct 5, 2024</span>
+                            </div>
+                            <span class="order-status status-cancelled">Cancelled</span>
+                        </div>
+                        <div class="order-details">
+                            <div class="order-items">
+                                <div class="order-item">
+                                    <div class="item-image">
+                                        Item 1
+                                    </div>
+                                    <div>
+                                        <div><strong>Product Name</strong></div>
+                                        <div style="color: #666;">Quantity: 1</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="color: #666;">
+                                <strong>Total:</strong> $79.99
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <a href="#" class="btn btn-secondary">View Details</a>
+                            <a href="#" class="btn btn-secondary">Buy Again</a>
+                        </div>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="page-btn">&lt;</button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">&gt;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 StoreName. All rights reserved.</p>
+    </footer>
+</body>
+</html>
